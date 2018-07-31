@@ -158,7 +158,8 @@ class GitPayloadParser(models.AbstractModel):
     def parse_gitlab_commit_author(self, context, commit):
         author_data = dict(
             name=commit["author"]["name"],
-            email=commit["author"]["email"]
+            email=commit["author"]["email"],
+            type=context.type,
         )
 
         repository_owner = self.parse_gitlab_repository_owner(context)
